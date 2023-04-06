@@ -41,4 +41,9 @@ def reception():
 
     os.system('cls' if os.name=='nt' else 'clear')
 
+    name = input("enter your name :")
+
+    print(f"Hello {name}, lets start play")
+
+
 reception()
