@@ -25,7 +25,7 @@ def reception():
     print("/ \  /|/  __// \   /   _\/  _ \/ \__/|/  __/  ")
     print("| |  |||  \  | |   |  /  | / \|| |\/|||  \    ")
     print("| |/\|||  /_ | |_/\|  \_ | \_/|| |  |||  /_   ")
-    print("\_/  \|\____\\____/\____/\____/\_/  \|\____\  ")
+    print("\_/  \|\____\\____/\____/\____/ \_/  \|\____\  ")
     print("                 _____  ____                  ")
     print("                /__ __\/  _ \                 ")
     print("                  / \  | / \|                 ")
@@ -86,17 +86,24 @@ def choose_category():
     print("Choose a category for the word:\n")
     print("1. Countries and Cities")
     print("2. Football clubs")
-    category_choice = input("Enter the number of your choice:")
+    category_choice = input("Enter the number of your choice:\n")
     if category_choice == "1":
         return ["portugal", "spain", "france", "italy", "Iceland", "scotland", "croatia", "lisbon", "london", "rome", "paris", "porto", "madrid"]
     elif category_choice == "2":
         return ["Sporting", "Benfica", "Porto", "Liverpool", "Arsenal", "Tottenham", "barcelona", "Juventus"]
     else:
-        pass
-    except ValueError as e:
-        print("Invalid choice. Please try again.\n")
+        print("Invalid choice. You need to ,chose only 1 or 2, Please try again.\n")
         return choose_category()
 
-reception()
-game_rules()
-choose_category()
+
+def select_word():
+    """
+    Random word selection from the list and display _ for each letter
+    """
+
+def main():
+    reception()
+    game_rules()
+    choose_category()
+
+main()
