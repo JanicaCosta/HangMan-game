@@ -12,7 +12,7 @@ import time
 
 Countries_Cities = ["portugal", "spain", "france", "italy", "Iceland", "scotland", "croatia", "lisbon", "london", "rome", "paris", "porto", "madrid"]
 
-Clubs = ["Sporting", "Benfica", "Porto", "Liverpool", "Arsenal", "Tottenham", "Barcelona", "Juventus"]
+Clubs = ["Sporting", "Benfica", "Porto", "Liverpool", "Arsenal", "Tottenham", "barcelona", "Juventus"]
 
 categories = [Countries_Cities, Clubs]
 
@@ -40,7 +40,7 @@ def reception():
     time.sleep(5)
     os.system('cls' if os.name=='nt' else 'clear')
     name = input("Please Enter your name :")
-    print(f"Hello {name}, lets start play!!!")
+    print(f"Hello {name}, lets start play!!!\n")
 
 
 def game_rules():
@@ -73,11 +73,30 @@ def game_rules():
     elif answer.lower() == "yes":
         pass
     else:
-        print("Invalid input. Please enter 'yes' or 'no'.")
+        print("Invalid input. Please enter 'yes' or 'no'.\n")
+        return game_rules()
     
     time.sleep(10)
     os.system('cls' if os.name=='nt' else 'clear')
 
+def choose_category():
+    """
+    Player to choose a category for the word
+    """
+    print("Choose a category for the word:\n")
+    print("1. Countries and Cities")
+    print("2. Football clubs")
+    category_choice = input("Enter the number of your choice:")
+    if category_choice == "1":
+        return ["portugal", "spain", "france", "italy", "Iceland", "scotland", "croatia", "lisbon", "london", "rome", "paris", "porto", "madrid"]
+    elif category_choice == "2":
+        return ["Sporting", "Benfica", "Porto", "Liverpool", "Arsenal", "Tottenham", "barcelona", "Juventus"]
+    else:
+        pass
+    except ValueError as e:
+        print("Invalid choice. Please try again.\n")
+        return choose_category()
 
 reception()
 game_rules()
+choose_category()
