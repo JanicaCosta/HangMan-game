@@ -108,6 +108,22 @@ def select_word(category_words):
 
     return word, word_display
 
+def restart_game():
+    """
+    Asks the user if they want to play again or quit.
+    If the user wants to play again, calls the main() function to start a new game.
+    If the user wants to quit, exits the program.
+    """
+    while True:
+        play_again = input("Do you want to play again? (yes/no): ")
+        if play_again.lower() == "yes":
+            main()
+        elif play_again.lower() == "no":
+            print("Thanks for playing!")
+            exit()
+        else:
+            print("Invalid input. Please enter 'yes' or 'no'.\n")
+
 def main():
     reception()
     game_rules()
@@ -175,6 +191,7 @@ def main():
                 print("\n".join(hangman))
                 print(f"Game over! The word was {word}.")
                 break
+    restart_game()
             
 
 main()
