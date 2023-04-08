@@ -96,14 +96,85 @@ def choose_category():
         return choose_category()
 
 
-def select_word():
+def select_word(category_words):
     """
     Random word selection from the list and display _ for each letter
     """
+    # Select a random word from the list
+    word = random.choice(category_words)
+
+    # Create a list of underscores to represent the letters of the word
+    word_display = ["_"] * len(word)
+
+    return word, word_display
 
 def main():
     reception()
     game_rules()
-    choose_category()
+    category_words = choose_category()
+    word, word_display = select_word(category_words)
+    incorrect_guesses = []
+
+    hangman = [
+        "______",
+        "|    |",
+        "|    ",
+        "|    ",
+        "|    ",
+        "|    "
+    ]
+
+    # Loop until the word is guessed or the hangman is completed
+    while True:
+        # Display the current state of the hangman
+        print("\n".join(hangman))
+
+        # Display the current state of the word
+        print(" ".join(word_display))
+
+        # Ask the user to guess a letter
+        guess = input("Guess a letter: ").lower()
+
+        # Check if the letter has already been guessed
+        if guess in incorrect_guesses or guess in word_display:
+            print("You already guessed that letter. Try again.")
+            continue
+
+        # Check if the guess is correct
+        if guess in word:
+            # Update the word display with the guessed letter
+            for i in range(len(word)):
+                if word[i] == guess:
+                    word_display[i] = guess
+
+            # Check if the word has been completely guessed
+            if "_" not in word_display:
+                print("Congratulations! You guessed the word.")
+                break
+        else:
+            # Add the incorrect guess to the list of incorrect guesses
+            incorrect_guesses.append(guess)
+
+            # Update the hangman
+            if len(incorrect_guesses) == 1:
+                hangman[2] = "|    O"
+            elif len(incorrect_guesses) == 2:
+                hangman[3] = "|    |"
+            elif len(incorrect_guesses) == 3:
+                hangman[3] = r"|   \|"
+            elif len(incorrect_guesses) == 4:
+                hangman[3] = r"|   \|/"
+            elif len(incorrect_guesses) == 5:
+                hangman[4] = r"|    |"
+            elif len(incorrect_guesses) == 6:
+                hangman[5] = r"|   /"
+            
+            elif len(incorrect_guesses) == 7:
+                hangman[5] = r"|   / \ "
+
+                print("\n".join(hangman))
+                print(f"Game over! The word was {word}.")
+                break
+            
 
 main()
