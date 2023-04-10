@@ -35,7 +35,7 @@ def reception():
     print("/ \ /|/  _ \/ \  /|/  __// \__/|/  _ \/ \  /| ")
     print("| |_||| / \|| |\ ||| |  _| |\/||| / \|| |\ || ")
     print("| | ||| |-||| | \||| |_//| |  ||| |-||| | \|| ")
-    print("\_/ \|\_/ \|\_/  \|\____\\_/  \|\_/ \|\_/  \| ")
+    print("\_/ \|\_/ \|\_/  \|\____\ \_/  \|\_/ \|\_/  \| ")
 
     time.sleep(5)
     os.system('cls' if os.name=='nt' else 'clear')
@@ -72,12 +72,15 @@ def game_rules():
 
     elif answer.lower() == "yes":
         pass
+        time.sleep(3)
+        os.system('cls' if os.name=='nt' else 'clear')
+
     else:
         print("Invalid input. Please enter 'yes' or 'no'.\n")
         return game_rules()
-    
-    time.sleep(10)
-    os.system('cls' if os.name=='nt' else 'clear')
+        time.sleep(10)
+        os.system('cls' if os.name=='nt' else 'clear')
+
 
 def choose_category():
     """
