@@ -35,7 +35,7 @@ def reception():
     print("/ \ /|/  _ \/ \  /|/  __// \__/|/  _ \/ \  /| ")
     print("| |_||| / \|| |\ ||| |  _| |\/||| / \|| |\ || ")
     print("| | ||| |-||| | \||| |_//| |  ||| |-||| | \|| ")
-    print("\_/ \|\_/ \|\_/  \|\____\ \_/  \|\_/ \|\_/  \| ")
+    print("\_/ \|\_/ \|\_/  \|\____\ \_/ \|\_/ \|\_/  \| ")
 
     time.sleep(5)
     os.system('cls' if os.name=='nt' else 'clear')
@@ -68,6 +68,10 @@ def game_rules():
           " the hangman image will progress.\n"
           "7. If the number of incorrect attempts reaches the limit\n"
           "   and hangman image completes, game over!")
+
+        time.sleep(10)
+        os.system('cls' if os.name=='nt' else 'clear')
+
     # If the user says yes, pass
 
     elif answer.lower() == "yes":
@@ -78,8 +82,6 @@ def game_rules():
     else:
         print("Invalid input. Please enter 'yes' or 'no'.\n")
         return game_rules()
-        time.sleep(10)
-        os.system('cls' if os.name=='nt' else 'clear')
 
 
 def choose_category():
@@ -122,7 +124,7 @@ def restart_game():
         if play_again.lower() == "yes":
             main()
         elif play_again.lower() == "no":
-            print("Thanks for playing!")
+            print(f"Thanks for playing!")
             exit()
         else:
             print("Invalid input. Please enter 'yes' or 'no'.\n")
@@ -194,7 +196,7 @@ def main():
                 print("\n".join(hangman))
                 print(f"Game over! The word was {word}.")
                 break
-    restart_game()
-            
 
+    restart_game()
+    
 main()
