@@ -10,9 +10,13 @@ import time
 
 # categories for the game and list of words
 
-Countries_Cities = ["portugal", "spain", "france", "italy", "Iceland", "scotland", "croatia", "lisbon", "london", "rome", "paris", "porto", "madrid"]
+Countries_Cities = ["portugal",
+"spain",
+"france", "italy", "Iceland", "scotland", "croatia", "lisbon", "london", "rome", "paris", "porto", "madrid"]
 
-Clubs = ["Sporting", "Benfica", "Porto", "Liverpool", "Arsenal", "Tottenham", "barcelona", "Juventus"]
+Clubs = ["sporting",
+    "benfica",
+    "porto", "liverpool", "Arsenal", "Tottenham", "barcelona", "Juventus"]
 
 categories = [Countries_Cities, Clubs]
 
@@ -48,39 +52,43 @@ def game_rules():
     If the user says no, it will display the rules.
     If the user says yes, it will pass.
     """
-    # Ask the user if they know the game rules
-    answer = input("Do you know the game rules? (yes/no) ")
-    
-    # If the user says no, display the rules
-    if answer.lower() == "no":
-        print("Here is instruction on how to play \n"
-          "1. Choose a category\n"
-          "2. The same number of Underscores '_' will be displayed \n"
-          "   as letters in the word.\n"
-          "3. Guess the word\n"
-          "   Only one alphabet key should be entered at each time.\n"
-          "   Space between the words is considered incorrect.\n"
-          "4. If your answer is correct, the letter will be displayed\n"
-          "   instead of the underscore'_'.\n"
-          "5. If you guess all the letters and complete the word,\n"
-          "   you win the game\n"
-          "6. If the incorrect answer is entered,"
-          " the hangman image will progress.\n"
-          "7. If the number of incorrect attempts reaches the limit\n"
-          "   and hangman image completes, game over!")
+    try:
+        # Ask the user if they know the game rules
+        answer = input("Do you know the game rules? (yes/no) ")
 
-        time.sleep(10)
-        os.system('cls' if os.name=='nt' else 'clear')
+        # If the user says no, display the rules
+        if answer.lower() == "no":
+            print("Here are the instructions on how to play:\n"
+                  "1. Choose a category\n"
+                  "2. The same number of underscores '_' will be displayed\n"
+                  "   as letters in the word.\n"
+                  "3. Guess the word\n"
+                  "   Only one alphabet key should be entered at a time.\n"
+                  "   Space between the words is considered incorrect.\n"
+                  "4. If your answer is correct, the letter will be displayed\n"
+                  "   instead of the underscore '_'.\n"
+                  "5. If you guess all the letters and complete the word,\n"
+                  "   you win the game.\n"
+                  "6. If an incorrect answer is entered,\n"
+                  "   the hangman image will progress.\n"
+                  "7. If the number of incorrect attempts reaches the limit\n"
+                  "   and the hangman image completes, it's game over!")
 
-    # If the user says yes, pass
+            time.sleep(10)
+            os.system('cls' if os.name=='nt' else 'clear')
 
-    elif answer.lower() == "yes":
-        pass
-        time.sleep(3)
-        os.system('cls' if os.name=='nt' else 'clear')
+        # If the user says yes, pass
+        elif answer.lower() == "yes":
+            pass
+            time.sleep(3)
+            os.system('cls' if os.name=='nt' else 'clear')
 
-    else:
-        print("Invalid input. Please enter 'yes' or 'no'.\n")
+        # If the user enters an invalid input
+        else:
+            raise ValueError("Invalid input. Please enter 'yes' or 'no'.")
+
+    except ValueError as e:
+        print(e)
         return game_rules()
 
 
@@ -88,16 +96,19 @@ def choose_category():
     """
     Player to choose a category for the word
     """
-    print("Choose a category for the word:\n")
-    print("1. Countries and Cities")
-    print("2. Football clubs")
-    category_choice = input("Enter the number of your choice:\n")
-    if category_choice == "1":
-        return ["portugal", "spain", "france", "italy", "Iceland", "scotland", "croatia", "lisbon", "london", "rome", "paris", "porto", "madrid"]
-    elif category_choice == "2":
-        return ["Sporting", "Benfica", "Porto", "Liverpool", "Arsenal", "Tottenham", "barcelona", "Juventus"]
-    else:
-        print("Invalid choice. You need to ,chose only 1 or 2, Please try again.\n")
+    try:
+        print("Choose a category for the word:\n")
+        print("1. Countries and Cities")
+        print("2. Football clubs")
+        category_choice = input("Enter the number of your choice:\n")
+        if category_choice == "1":
+            return ["portugal", "spain", "france", "italy", "Iceland", "scotland", "croatia", "lisbon", "london", "rome", "paris", "porto", "madrid"]
+        elif category_choice == "2":
+            return ["Sporting", "Benfica", "Porto", "Liverpool", "Arsenal", "Tottenham", "barcelona", "Juventus"]
+        else:
+            raise ValueError("Invalid choice. Please enter either 1 or 2.\n")
+    except ValueError as e:
+        print(e)
         return choose_category()
 
 
