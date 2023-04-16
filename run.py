@@ -127,7 +127,6 @@ def game_rules():
 
         # If the user says yes, pass
         elif answer.lower() == "yes":
-            pass
             clear_screen()
 
         # If the user enters an invalid input
@@ -187,7 +186,7 @@ def restart_game():
         if play_again.lower() == "yes":
             play_game()
         elif play_again.lower() == "no":
-            print(f"Thanks for playing!")
+            print("Thanks for playing!")
             exit()
         else:
             print("Invalid input. Please enter 'yes' or 'no'.\n")
