@@ -7,58 +7,63 @@ import random
 import os
 import time
 
-## Define a class named textcolor that contains a set of color codes for style text
+# Define a class named textcolor that contains
+# a set of color codes for style text
+
+
 class TextColor:
-    PURPLE = '\033[95m' # purple color
-    RED = '\033[91m'    # red color
-    YELLOW = '\033[93m' # yellow color
-    CYAN = '\033[96m'   # cyan color
-    GREEN = '\033[92m'  # green color
-    BOLD = '\33[1m'     # bold text
-    ITALIC = '\33[3m'   # italicized text
-    REDBG = '\33[41m'   # red background
-    GREENBG = '\33[42m'  # green background
-    BLUEBG = '\33[44m'     # blue background
-    UNDERLINE = '\033[4m' # underlined text
+    PURPLE = '\033[95m'  # purple color
+    RED = '\033[91m'     # red color
+    YELLOW = '\033[93m'  # yellow color
+    CYAN = '\033[96m'    # cyan color
+    GREEN = '\033[92m'   # green color
+    BOLD = '\33[1m'      # bold text
+    ITALIC = '\33[3m'    # italicized text
+    REDBG = '\33[41m'    # red background
+    GREENBG = '\33[42m'   # green background
+    BLUEBG = '\33[44m'   # blue background
+    UNDERLINE = '\033[4m'  # underlined text
 
-    ENDC = '\33[0m' # reset to default color
-
+    ENDC = '\33[0m'  # reset to default color
 
 
 # categories for the game and list of words
 
+
 Countries_Cities = ["portugal",
-    "spain",
-    "france",
-    "italy",
-    "Iceland",
-    "scotland",
-    "croatia",
-    "lisbon",
-    "london",
-    "rome",
-    "paris",
-    "porto",
-    "madrid"]
+                    "spain",
+                    "france",
+                    "italy",
+                    "Iceland",
+                    "scotland",
+                    "croatia",
+                    "lisbon",
+                    "london",
+                    "rome",
+                    "paris",
+                    "porto",
+                    "madrid"]
 
 Clubs = ["sporting",
-    "benfica",
-    "porto",
-    "liverpool",
-    "arsenal",
-    "tottenham",
-    "barcelona",
-    "Juventus"]
+         "benfica",
+         "porto",
+         "liverpool",
+         "arsenal",
+         "tottenham",
+         "barcelona",
+         "Juventus"]
 
 categories = [Countries_Cities, Clubs]
 
+
 def clear_screen():
     """
-    this function is to clear the screen after 5 seconds    
+    this function is to clear the screen after 5 seconds
     """
 
     time.sleep(3)
-    os.system('cls' if os.name=='nt' else 'clear')
+    os.system('cls' if os.name == 'nt' else 'clear')
+
 
 def reception():
     """
@@ -66,6 +71,7 @@ def reception():
     """
 
     print("""
+    
      _   _  ___  _   _ ________  ___ ___  _   _ 
     | | | |/ _ \| \ | |  __ |  \/  |/ _ \| \ | |
     | |_| / /_\ |  \| | |  \| .  . / /_\ |  \| |
@@ -80,12 +86,14 @@ def reception():
             | |_\ | | | | |  | | |___           
              \____\_| |_\_|  |_\____/           """)
 
+
     clear_screen()
 
 
-def get_valid_name():
+def  get_valid_name():
     """
-    register a name but with few rules, no numbers or lenght more then 8 letters
+    register a name but with few rules,
+    no numbers or lenght more then 8 letters
     """
 
     while True:
@@ -97,7 +105,6 @@ def get_valid_name():
         else:
             print(f"Hello {name}, lets start play!!!")
             return name
-        
 
 
 def game_rules():
@@ -118,7 +125,8 @@ def game_rules():
                   "3. Guess the word\n"
                   "   Only one alphabet key should be entered at a time.\n"
                   "   Space between the words is considered incorrect.\n"
-                  "4. If your answer is correct, the letter will be displayed\n"
+                  "4. If your answer is correct, the letter will be displayed"
+                  "\n"
                   "   instead of the underscore '_'.\n"
                   "5. If you guess all the letters and complete the word,\n"
                   "   you win the game.\n"
@@ -139,7 +147,7 @@ def game_rules():
             raise ValueError("Invalid input. Please enter 'yes' or 'no'.")
 
     except ValueError as e:
-        print(TextColor.REDBG + "Error:", str(e) + TextColor.ENDC,"\n")
+        print(TextColor.REDBG + "Error:", str(e) + TextColor.ENDC, "\n")
         return game_rules()
 
 
@@ -153,13 +161,16 @@ def choose_category():
         print("2. Football clubs")
         category_choice = input("Enter the number of your choice:\n")
         if category_choice == "1":
-            return ["portugal", "spain", "france", "italy", "Iceland", "scotland", "croatia", "lisbon", "london", "rome", "paris", "porto", "madrid"]
+            return ["portugal", "spain", "france", "italy", "Iceland",
+                    "scotland", "croatia", "lisbon", "london", "rome",
+                    "paris", "porto", "madrid"]
         elif category_choice == "2":
-            return ["Sporting", "Benfica", "Porto", "Liverpool", "Arsenal", "Tottenham", "barcelona", "Juventus"]
+            return ["Sporting", "Benfica", "Porto", "Liverpool", "Arsenal",
+                    "Tottenham", "barcelona", "Juventus"]
         else:
             raise ValueError("Invalid choice. Please enter either 1 or 2.\n")
     except ValueError as e:
-        print(TextColor.REDBG + "Error:", str(e) + TextColor.ENDC,"\n")
+        print(TextColor.REDBG + "Error:", str(e) + TextColor.ENDC, "\n")
         return choose_category()
 
 
@@ -175,10 +186,12 @@ def select_word(category_words):
 
     return word, word_display
 
+
 def restart_game():
     """
     Asks the user if they want to play again or quit.
-    If the user wants to play again, calls the main() function to start a new game.
+    If the user wants to play again, calls the main() function to
+    start a new game.
     If the user wants to quit, exits the program.
     """
     while True:
@@ -225,6 +238,7 @@ def draw_hangman(num_incorrect_guesses):
 
     return "\n".join(hangman)
 
+
 def play_game():
     reception()
     get_valid_name()
@@ -232,7 +246,6 @@ def play_game():
     category_words = choose_category()
     word, word_display = select_word(category_words)
     incorrect_guesses = []
-    
     hangman_str = draw_hangman(len(incorrect_guesses))
 
     # Loop until the word is guessed or the hangman is completed
@@ -275,5 +288,6 @@ def play_game():
                 print(f"Game over! The word was {word}.")
                 break
     restart_game()
-    
+
+
 play_game()
