@@ -11,12 +11,27 @@ import time
 # categories for the game and list of words
 
 Countries_Cities = ["portugal",
-"spain",
-"france", "italy", "Iceland", "scotland", "croatia", "lisbon", "london", "rome", "paris", "porto", "madrid"]
+    "spain",
+    "france",
+    "italy",
+    "Iceland",
+    "scotland",
+    "croatia",
+    "lisbon",
+    "london",
+    "rome",
+    "paris",
+    "porto",
+    "madrid"]
 
 Clubs = ["sporting",
     "benfica",
-    "porto", "liverpool", "Arsenal", "Tottenham", "barcelona", "Juventus"]
+    "porto",
+    "liverpool",
+    "arsenal",
+    "tottenham",
+    "barcelona",
+    "Juventus"]
 
 categories = [Countries_Cities, Clubs]
 
@@ -25,21 +40,19 @@ def reception():
     introduction to the game - welcome message
     """
 
-    print(" _      _____ _     ____  ____  _      _____  ")
-    print("/ \  /|/  __// \   /   _\/  _ \/ \__/|/  __/  ")
-    print("| |  |||  \  | |   |  /  | / \|| |\/|||  \    ")
-    print("| |/\|||  /_ | |_/\|  \_ | \_/|| |  |||  /_   ")
-    print("\_/  \|\____\\____/\____/\____/ \_/  \|\____\  ")
-    print("                 _____  ____                  ")
-    print("                /__ __\/  _ \                 ")
-    print("                  / \  | / \|                 ")
-    print("                  | |  | \_/|                 ")
-    print("                  \_/  \____/                 ")
-    print(" _     ____  _      _____ _      ____  _      ")
-    print("/ \ /|/  _ \/ \  /|/  __// \__/|/  _ \/ \  /| ")
-    print("| |_||| / \|| |\ ||| |  _| |\/||| / \|| |\ || ")
-    print("| | ||| |-||| | \||| |_//| |  ||| |-||| | \|| ")
-    print("\_/ \|\_/ \|\_/  \|\____\ \_/ \|\_/ \|\_/  \| ")
+    print(" _   _  ___  _   _ ________  ___ ___  _   _ ")
+    print("| | | |/ _ \| \ | |  __ |  \/  |/ _ \| \ | |")
+    print("| |_| / /_\ |  \| | |  \| .  . / /_\ |  \| |")
+    print("|  _  |  _  | . ` | | __| |\/| |  _  | . ` |")
+    print("| | | | | | | |\  | |_\ | |  | | | | | |\  |")
+    print("\_| |_\_| |_\_| \_/\____\_|  |_\_| |_\_| \_/")
+    print("                                            ")
+    print("         _____  ___ ___  ________           ")
+    print("        |  __ \/ _ \|  \/  |  ___|          ")
+    print("        | |  \/ /_\ | .  . | |__            ")
+    print("        | | __|  _  | |\/| |  __|           ")
+    print("        | |_\ | | | | |  | | |___           ")
+    print("         \____\_| |_\_|  |_\____/           ")
 
     time.sleep(5)
     os.system('cls' if os.name=='nt' else 'clear')
@@ -139,6 +152,7 @@ def restart_game():
             exit()
         else:
             print("Invalid input. Please enter 'yes' or 'no'.\n")
+
 
 def main():
     reception()
