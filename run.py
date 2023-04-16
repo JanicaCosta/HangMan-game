@@ -7,6 +7,23 @@ import random
 import os
 import time
 
+## Define a class named textstyle that contains a set of color codes for style text
+class textstyle:
+    PURPLE = '\033[95m' # purple color
+    RED = '\033[91m'    # red color
+    YELLOW = '\033[93m' # yellow color
+    CYAN = '\033[96m'   # cyan color
+    GREEN = '\033[92m'  # green color
+    BOLD = '\33[1m'     # bold text
+    ITALIC = '\33[3m'   # italicized text
+    REDBG = '\33[41m'   # red background
+    GREENBG = '\33[42m'  # green background
+    BLUEBG = '\33[44m'     # blue background
+    UNDERLINE = '\033[4m' # underlined text
+
+    ENDC = '\33[0m' # reset to default color
+
+
 
 # categories for the game and list of words
 
@@ -101,7 +118,7 @@ def game_rules():
             raise ValueError("Invalid input. Please enter 'yes' or 'no'.")
 
     except ValueError as e:
-        print(e)
+        print(textstyle.REDBG + "Error:", str(e) + textstyle.ENDC,"\n")
         return game_rules()
 
 
@@ -121,7 +138,7 @@ def choose_category():
         else:
             raise ValueError("Invalid choice. Please enter either 1 or 2.\n")
     except ValueError as e:
-        print(e)
+        print(textstyle.REDBG + "Error:", str(e) + textstyle.ENDC,"\n")
         return choose_category()
 
 
@@ -160,7 +177,7 @@ def main():
     category_words = choose_category()
     word, word_display = select_word(category_words)
     incorrect_guesses = []
-
+    
     hangman = [
         "______",
         "|    |",
