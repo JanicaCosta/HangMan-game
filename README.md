@@ -117,6 +117,9 @@ at the end of the game, you will have the chance to play again, or if not, you c
 ![image](https://user-images.githubusercontent.com/117991189/232339696-a4063856-7587-4b52-bf8f-c51b342c2afb.png)
 * No errors were returned from PEP8online.com
 
+![image](https://user-images.githubusercontent.com/117991189/232340238-ebbe2717-b770-4f42-9dae-352f5e773139.png)
+* lighthouse tested
+
 
 # Deployment steps
 
