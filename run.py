@@ -184,7 +184,7 @@ def restart_game():
     while True:
         play_again = input("Do you want to play again? (yes/no): ")
         if play_again.lower() == "yes":
-            main()
+            play_game()
         elif play_again.lower() == "no":
             print(f"Thanks for playing!")
             exit()
