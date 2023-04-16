@@ -52,6 +52,14 @@ Clubs = ["sporting",
 
 categories = [Countries_Cities, Clubs]
 
+def clear_screen():
+    """
+    this function is to clear the screen after 5 seconds    
+    """
+
+    time.sleep(5)
+    os.system('cls' if os.name=='nt' else 'clear')
+
 def reception():
     """
     introduction to the game - welcome message
@@ -71,8 +79,7 @@ def reception():
     print("        | |_\ | | | | |  | | |___           ")
     print("         \____\_| |_\_|  |_\____/           ")
 
-    time.sleep(5)
-    os.system('cls' if os.name=='nt' else 'clear')
+    clear_screen()
     name = input("Please Enter your name :")
     print(f"Hello {name}, lets start play!!!\n")
 
@@ -104,14 +111,12 @@ def game_rules():
                   "7. If the number of incorrect attempts reaches the limit\n"
                   "   and the hangman image completes, it's game over!")
 
-            time.sleep(10)
-            os.system('cls' if os.name=='nt' else 'clear')
+            clear_screen()
 
         # If the user says yes, pass
         elif answer.lower() == "yes":
             pass
-            time.sleep(3)
-            os.system('cls' if os.name=='nt' else 'clear')
+            clear_screen()
 
         # If the user enters an invalid input
         else:
