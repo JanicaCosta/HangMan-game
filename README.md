@@ -183,7 +183,13 @@ the main image for the reception.
 
 ![image](https://user-images.githubusercontent.com/117991189/232340395-29212052-c5d2-4b4c-a7ba-76d0fd8edd88.png)
 
+# Credits
 
+* Code Institute for the deployment terminal
+
+* Idea for [flowchart](http://inventwithpython.com/invent4thed/chapter7.html)
+
+* My mentor Reuben for encouraging me throughout the project.
 
 
 
