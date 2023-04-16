@@ -120,6 +120,9 @@ at the end of the game, you will have the chance to play again, or if not, you c
 ![image](https://user-images.githubusercontent.com/117991189/232340238-ebbe2717-b770-4f42-9dae-352f5e773139.png)
 * lighthouse tested
 
+![image](https://user-images.githubusercontent.com/117991189/232340593-ee6e348e-eadc-4b8a-a841-379977c53f11.png)
+* [Python tutor](https://pythontutor.com/visualize.html#mode=edit)
+
 
 # Deployment steps
 
@@ -171,6 +174,14 @@ Once the program runs: you should see the message "the app was successfully depl
 
  20. As manual deployment was chosen, I had to come back to the Heroku deployment page whenever I have an updated working version pushed into the GitHub page.
 
+# Images
+
+Are created by using ASCII art. 
+http://patorjk.com/software/taag/#p=display&f=ANSI%20Regular&t=Hangman
+
+the main image for the reception.
+
+![image](https://user-images.githubusercontent.com/117991189/232340395-29212052-c5d2-4b4c-a7ba-76d0fd8edd88.png)
 
 
 
