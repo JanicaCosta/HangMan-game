@@ -57,7 +57,7 @@ def clear_screen():
     this function is to clear the screen after 5 seconds    
     """
 
-    time.sleep(5)
+    time.sleep(3)
     os.system('cls' if os.name=='nt' else 'clear')
 
 def reception():
@@ -81,8 +81,23 @@ def reception():
              \____\_| |_\_|  |_\____/           """)
 
     clear_screen()
-    name = input("Please Enter your name :")
-    print(f"Hello {name}, lets start play!!!\n")
+
+
+def get_valid_name():
+    """
+    register a name but with few rules, no numbers or lenght more then 8 letters
+    """
+
+    while True:
+        name = input("Please enter your name (max 8 letters, no numbers): \n")
+        if len(name) > 8:
+            print("Name must be 8 letters or fewer.\n")
+        elif any(char.isdigit() for char in name):
+            print("Name cannot contain numbers.\n")
+        else:
+            print(f"Hello {name}, lets start play!!!")
+            return name
+        
 
 
 def game_rules():
@@ -212,6 +227,7 @@ def draw_hangman(num_incorrect_guesses):
 
 def play_game():
     reception()
+    get_valid_name()
     game_rules()
     category_words = choose_category()
     word, word_display = select_word(category_words)
