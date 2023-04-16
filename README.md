@@ -24,3 +24,25 @@ This is the flowchart made during the planning stage of the project. This flowch
 * Every time you guess a letter wrong you lose a life and the hangman begins to appear, piece by piece.
 
 * To win you need to solve the puzzle before the hangman dies.
+
+
+# Technology
+
+
+*  This game was created with:
+
+    * [Gitpod](https://www.gitpod.io/) used to develop a project and organise version control 
+
+    * [Github](https://github.com) used to host repository
+       
+    * [Heroku](https://id.heroku.com/login) used to deploy my application
+
+* [Lucid](https://lucid.app/users/login#/login) used to create the flowchart for the project.
+
+* The Code Institute's GitHub [python-essentials-template](https://github.com/Code-Institute-Org/python-essentials-template) for Python is used in order for the program to display properly in the deployed site on Heroku.
+
+* [random](https://docs.python.org/3/library/random.html) to randomize anagram
+
+* [time](https://docs.python.org/3/library/time.html) to slow down printed statements
+
+* [Python 3](https://www.python.org/) - an interpreted high-level general-purpose backend programming language.
