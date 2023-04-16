@@ -171,13 +171,7 @@ def restart_game():
             print("Invalid input. Please enter 'yes' or 'no'.\n")
 
 
-def main():
-    reception()
-    game_rules()
-    category_words = choose_category()
-    word, word_display = select_word(category_words)
-    incorrect_guesses = []
-    
+def draw_hangman(num_incorrect_guesses):
     hangman = [
         "______",
         "|    |",
@@ -187,10 +181,42 @@ def main():
         "|    "
     ]
 
+    if num_incorrect_guesses >= 1:
+        hangman[2] = "|    O"
+
+    if num_incorrect_guesses >= 2:
+        hangman[3] = "|    |"
+
+    if num_incorrect_guesses >= 3:
+        hangman[3] = r"|   \|"
+
+    if num_incorrect_guesses >= 4:
+        hangman[3] = r"|   \|/"
+
+    if num_incorrect_guesses >= 5:
+        hangman[4] = r"|    |"
+
+    if num_incorrect_guesses >= 6:
+        hangman[5] = r"|   /"
+
+    if num_incorrect_guesses >= 7:
+        hangman[5] = r"|   / \ "
+
+    return "\n".join(hangman)
+
+def play_game():
+    reception()
+    game_rules()
+    category_words = choose_category()
+    word, word_display = select_word(category_words)
+    incorrect_guesses = []
+    
+    hangman_str = draw_hangman(len(incorrect_guesses))
+
     # Loop until the word is guessed or the hangman is completed
     while True:
         # Display the current state of the hangman
-        print("\n".join(hangman))
+        print(hangman_str)
 
         # Display the current state of the word
         print(" ".join(word_display))
@@ -212,33 +238,20 @@ def main():
 
             # Check if the word has been completely guessed
             if "_" not in word_display:
-                print("Congratulations! You guessed the word.")
+                print("Congratulations! You won.")
                 break
         else:
             # Add the incorrect guess to the list of incorrect guesses
             incorrect_guesses.append(guess)
 
             # Update the hangman
-            if len(incorrect_guesses) == 1:
-                hangman[2] = "|    O"
-            elif len(incorrect_guesses) == 2:
-                hangman[3] = "|    |"
-            elif len(incorrect_guesses) == 3:
-                hangman[3] = r"|   \|"
-            elif len(incorrect_guesses) == 4:
-                hangman[3] = r"|   \|/"
-            elif len(incorrect_guesses) == 5:
-                hangman[4] = r"|    |"
-            elif len(incorrect_guesses) == 6:
-                hangman[5] = r"|   /"
-            
-            elif len(incorrect_guesses) == 7:
-                hangman[5] = r"|   / \ "
+            hangman_str = draw_hangman(len(incorrect_guesses))
 
-                print("\n".join(hangman))
+            # Check if the game is over
+            if len(incorrect_guesses) == 7:
+                print(hangman_str)
                 print(f"Game over! The word was {word}.")
                 break
-
     restart_game()
     
-main()
+play_game()
