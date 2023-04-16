@@ -4,6 +4,9 @@ Hangman is an old-school favorite, a word game where the goal is simply to find 
 
 As Part of the project 3, I have choosen this game show my skills and my knowladge on python.
 
+You can try the game here:
+https://hangman-project3-joao.herokuapp.com/
+
 
 # Data Model
 
