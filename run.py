@@ -7,8 +7,8 @@ import random
 import os
 import time
 
-## Define a class named textstyle that contains a set of color codes for style text
-class textstyle:
+## Define a class named textcolor that contains a set of color codes for style text
+class TextColor:
     PURPLE = '\033[95m' # purple color
     RED = '\033[91m'    # red color
     YELLOW = '\033[93m' # yellow color
@@ -123,7 +123,7 @@ def game_rules():
             raise ValueError("Invalid input. Please enter 'yes' or 'no'.")
 
     except ValueError as e:
-        print(textstyle.REDBG + "Error:", str(e) + textstyle.ENDC,"\n")
+        print(TextColor.REDBG + "Error:", str(e) + TextColor.ENDC,"\n")
         return game_rules()
 
 
@@ -143,7 +143,7 @@ def choose_category():
         else:
             raise ValueError("Invalid choice. Please enter either 1 or 2.\n")
     except ValueError as e:
-        print(textstyle.REDBG + "Error:", str(e) + textstyle.ENDC,"\n")
+        print(TextColor.REDBG + "Error:", str(e) + TextColor.ENDC,"\n")
         return choose_category()
 
 
