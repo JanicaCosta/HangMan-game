@@ -96,7 +96,22 @@ the function choose the category is giving 2 options to the player, if he choose
 
 ## Game starts
 
-the game will start when 
+the game will start when the hangman drawn it starts and shows the number of letter for the ramdom word.
+
+![image](https://user-images.githubusercontent.com/117991189/232338616-5392b928-7aef-4dd3-999a-14748e9a1596.png)
+
+the goal is to the player guess the word, if he fails, the code will tell you the word and will show game over.
+
+if you guess the word, you won.
+![image](https://user-images.githubusercontent.com/117991189/232338743-15421ca9-3a3c-45a4-ac38-00873cbc3e51.png)
+
+
+## game finnished 
+
+at the end of the game, you will have the chance to play again, or if not, you can finished and the code will show you a message thanking you for playing.
+
+![image](https://user-images.githubusercontent.com/117991189/232338845-51592523-ab88-443b-8bcb-2cc7d7989a91.png)
+
 
 
 
